@@ -1,9 +1,23 @@
 package com.celfocus.workshops;
 
+import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(DataProviderRunner.class)
 public class SumCommandTest {
+
+  @DataProvider
+  public static Object[][] myProvider() {
+    return new Object[][] {
+        {0, 0},
+        {100, 0},
+        {0, 300}
+    };
+  }
 
 
   @Test
@@ -49,10 +63,8 @@ public class SumCommandTest {
   }
 
   @Test(expected = ZeroNumberException.class)
-  public void testExecute_ArgumentAandBAreZero_ShouldThrowNotANumberException() throws ZeroNumberException {
-    // Arrange
-    int a = 0;
-    int b = 0;
+  @UseDataProvider("myProvider")
+  public void testExecute_ArgumentAAndOrBAreZero_ShouldThrowNotANumberException(int a, int b) throws ZeroNumberException {
     SumCommand com = new SumCommand(a, b);
 
     // Act
