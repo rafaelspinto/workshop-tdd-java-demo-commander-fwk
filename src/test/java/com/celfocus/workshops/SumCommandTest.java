@@ -47,4 +47,16 @@ public class SumCommandTest {
     com.execute();
 
   }
+
+  @Test(expected = ZeroNumberException.class)
+  public void testExecute_ArgumentAandBAreZero_ShouldThrowNotANumberException() throws ZeroNumberException {
+    // Arrange
+    int a = 0;
+    int b = 0;
+    SumCommand com = new SumCommand(a, b);
+
+    // Act
+    com.execute();
+
+  }
 }
