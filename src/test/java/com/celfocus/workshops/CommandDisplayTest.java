@@ -38,6 +38,6 @@ public class CommandDisplayTest {
 
     String result = display.show();
 
-    Assert.assertEquals("12345", result);
+    Assert.assertEquals("12345a", result);
   }
 }
