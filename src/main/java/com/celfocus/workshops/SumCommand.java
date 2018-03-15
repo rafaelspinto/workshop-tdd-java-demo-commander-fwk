@@ -1,6 +1,6 @@
 package com.celfocus.workshops;
 
-public class SumCommand {
+public class SumCommand implements CommandInterface {
   private int result;
   private int a;
   private int b;
