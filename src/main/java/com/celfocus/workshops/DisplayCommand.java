@@ -8,7 +8,10 @@ public class DisplayCommand {
     this.cmd = cmd;
   }
 
-  public String show() throws ZeroNumberException {
+  public String show() throws ZeroNumberException, CommandNotAvailableException {
+    if(!cmd.isAvailable()) {
+      throw new CommandNotAvailableException();
+    }
     cmd.execute();
     if(cmd.getResult() == 0) {
       return "ERROR";

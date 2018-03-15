@@ -18,6 +18,10 @@ public class SumCommand implements CommandInterface {
     result = a + b;
   }
 
+  public boolean isAvailable() {
+    return true;
+  }
+
   public int getResult() {
     return result;
   }
